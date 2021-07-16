@@ -15,6 +15,6 @@ public class AutoSkinModule extends Module {
 
 
     public static void onGameJoin(GameJoinS2CPacket packet) {
-        if (!toggled) return; KbpwUtil.queueMessage("/skin G6_");
+        if (!toggled) return; KbpwUtil.queueMessage("/skin " + KbpwUtil.loginUsername);
     }
 }

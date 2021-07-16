@@ -29,6 +29,7 @@ import java.util.logging.Logger;
 
 public class KbpwUtil implements ModInitializer {
 
+    public static String loginUsername = "Unknown";
     public static String version = "0.0.1";
     public static int[] icuDetector = {0, 0};
     public static int countdown = -1;
@@ -100,6 +101,7 @@ public class KbpwUtil implements ModInitializer {
 
         ModuleManager.init();
         try {
+            loginUsername = AccountManager.getUsername();
             String home = System.getProperty("user.home");
             if(Files.exists(Paths.get(home + "/" + ".ku-name"))) {
                 String name = Files.readAllLines(Paths.get(home + "/" + ".ku-name"), StandardCharsets.UTF_8).get(0);
