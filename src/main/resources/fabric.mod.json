@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "kbpw-util",
+  "version": "${version}",
+  "name": "Kaboom.pw Utility Mod",
+  "description": "A collection of utilities for the Kaboom.pw free-op server. Works on 1.16+",
+  "authors": [
+    "allink"
+  ],
+  "contact": {
+    "repo": "https://github.com/business-goose/kbpw-util.git"
+  },
+  "license": "AGPL-3.0",
+  "icon": "assets/kbpw-util/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "me.allink.kbpwutil.KbpwUtil"
+    ]
+  },
+  "mixins": [
+    "kbpw-util.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "fabric": "*",
+    "minecraft": "1.16.*"
+  }
+}

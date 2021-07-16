@@ -1,0 +1,30 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.allink.kbpwutil.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "block.SkullBlockEntityMixin",
+    "client.MinecraftClientMixin",
+    "item.HeldItemRendererMixin",
+    "item.ItemEntityRendererMixin",
+    "item.ItemRendererMixin",
+    "item.SkullItemMixin",
+    "network.MultiplayerServerListPingerMixin",
+    "packet.ClientPlayMixin",
+    "particle.ClientWorldMixin",
+    "player.AbstractClientPlayerEntityMixin",
+    "player.ClientPlayerEntityMixin",
+    "resource.SplashTextResourceSupplierMixin",
+    "screen.DisconnectedScreenMixin",
+    "screen.InGameHudMixin",
+    "screen.MultiplayerWarningScreenMixin",
+    "screen.SkullBlockEntityRendererMixin",
+    "screen.TitleScreenMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

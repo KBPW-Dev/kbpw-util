@@ -1,0 +1,10 @@
+{
+  "kbpw.icu.bots": "Unlock with bots",
+  "kbpw.icu.rejoin": "Rejoin",
+  "kbpw.icu.rejoin.diffuser": "Rejoin (new name)",
+  "kbpw.icu.question": "You have been ICU controlled. What would you like to do?",
+  "kbpw.gui.reconnect": "Reconnecting in %s",
+  "kbpw.disconnect.randomizeUser": "Randomize Username and Reconnect",
+  "kbpw.reconnect": "Reconnect",
+  "kbpw.ping": "Server pinging is disabled"
+}
