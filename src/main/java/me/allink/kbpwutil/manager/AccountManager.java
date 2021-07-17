@@ -61,6 +61,6 @@ public class AccountManager {
      * @return Current username
      */
     public static String getUsername() throws NullPointerException {
-        return MinecraftClient.getInstance().getSession().getUsername(); // fartable
+        return MinecraftClient.getInstance().getSession().getUsername();
     }
 }
