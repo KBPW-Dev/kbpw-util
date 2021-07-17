@@ -1,4 +1,4 @@
-package me.allink.kbpwutil.mixin.packet;
+package me.allink.kbpwutil.mixin.network;
 
 import com.github.hhhzzzsss.chathacks.ChatHacksItsCalledThisToPreventConflicts;
 import me.allink.kbpwutil.KbpwUtil;
@@ -28,10 +28,8 @@ public class ClientPlayMixin {
     @Inject(method = "onEntityStatus(Lnet/minecraft/network/packet/s2c/play/EntityStatusS2CPacket;)V", at = @At("TAIL"))
 
     public void onEntityStatus(EntityStatusS2CPacket packet, CallbackInfo ci) {
-        switch (packet.getStatus()) {
-            case 24:
-                KbpwUtil.queueMessage("/op @s[type=player]");
-                break;
+        if (packet.getStatus() == 24) {
+            KbpwUtil.queueMessage("/op @s[type=player]");
         }
     }
 
