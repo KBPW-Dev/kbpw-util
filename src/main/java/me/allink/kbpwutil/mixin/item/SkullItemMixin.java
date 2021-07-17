@@ -17,7 +17,7 @@ public class SkullItemMixin {
         cir.setReturnValue(Text.of("retarded bullshit"));
     }
 
-    @Inject(method="Lnet/minecraft/item/SkullItem;postProcessNbt(Lnet/minecraft/nbt/NbtCompound;)Z", cancellable = true, at=@At("HEAD"))
+    @Inject(method = "postProcessNbt(Lnet/minecraft/nbt/NbtCompound;)Z", cancellable = true, at = @At("HEAD"))
 
     public void postProcessTag(NbtCompound tag, CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(false);

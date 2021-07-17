@@ -17,7 +17,7 @@ public abstract class AbstractClientPlayerEntityMixin {
     @Nullable
     protected abstract PlayerListEntry getPlayerListEntry();
 
-    @Inject(method = "Lnet/minecraft/client/network/AbstractClientPlayerEntity;getCapeTexture()Lnet/minecraft/util/Identifier;", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "getCapeTexture()Lnet/minecraft/util/Identifier;", at = @At("RETURN"), cancellable = true)
 
     public void getCapeTexture(CallbackInfoReturnable<Identifier> cir) {
         assert MinecraftClient.getInstance().player != null;

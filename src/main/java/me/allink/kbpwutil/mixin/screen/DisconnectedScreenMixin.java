@@ -13,7 +13,6 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Formatting;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -21,12 +20,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 @Mixin(DisconnectedScreen.class)
 public class DisconnectedScreenMixin extends Screen {
-    private boolean reconnectHandled = false;
+    private final boolean reconnectHandled = false;
 
     @Shadow private MultilineText reasonFormatted;
 
