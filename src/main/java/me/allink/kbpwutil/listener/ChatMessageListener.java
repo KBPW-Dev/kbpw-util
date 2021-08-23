@@ -4,10 +4,7 @@ import com.google.common.io.Resources;
 import me.allink.kbpwutil.KbpwUtil;
 import me.allink.kbpwutil.manager.AccountManager;
 import me.allink.kbpwutil.manager.ModuleManager;
-import me.allink.kbpwutil.modules.AntiMuteModule;
-import me.allink.kbpwutil.modules.AutoCSpyModule;
-import me.allink.kbpwutil.modules.AutoCreativeModule;
-import me.allink.kbpwutil.modules.AutoVanishModule;
+import me.allink.kbpwutil.modules.*;
 import me.allink.kbpwutil.validation.HBot;
 import me.allink.kbpwutil.validation.SaxBot;
 import net.minecraft.client.MinecraftClient;
@@ -15,16 +12,12 @@ import net.minecraft.client.gui.screen.ConnectScreen;
 import net.minecraft.client.gui.screen.DisconnectedScreen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.screen.multiplayer.MultiplayerScreen;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.network.ServerInfo;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.net.URL;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -42,7 +35,7 @@ public class ChatMessageListener {
         AntiMuteModule.onReceivedChatMessage(message, senderUUID);
     }
 
-    public static  void onSentChatMessage(String message, CallbackInfo info) throws IOException, Exception {
+    public static void onSentChatMessage(String message, CallbackInfo info) throws Exception {
         assert client.player != null;
         if (message.startsWith("`")) {
             info.cancel();
@@ -118,7 +111,7 @@ public class ChatMessageListener {
                             if(Files.notExists(dir)) {
                                 Files.createDirectory(dir);
                             }
-                            FileWriter fileWriter = new FileWriter(dir + "/" + timeStamp + ".txt", Charset.forName("UTF-8"));
+                            FileWriter fileWriter = new FileWriter(dir + "/" + timeStamp + ".txt");
                             fileWriter.write(client.player.inventory.getMainHandStack().getTag().toString());
                             fileWriter.close();
                             client.player.sendSystemMessage(Text.of("§aFinished saving Item Meta to disk!"), KbpwUtil.blankUUID());
@@ -127,6 +120,10 @@ public class ChatMessageListener {
                         }
                     }
 
+                    break;
+                case "keys":
+                    KeyModule.toggled = !KeyModule.toggled;
+                    client.player.sendSystemMessage(Text.of("§fKeys toggled " + ((KeyModule.toggled) ? "§aON" : "§cOFF")), KbpwUtil.blankUUID());
                     break;
                 default:
                     client.player.sendSystemMessage(Text.of("§eUnknown command \"" + command + "\"."), KbpwUtil.blankUUID());

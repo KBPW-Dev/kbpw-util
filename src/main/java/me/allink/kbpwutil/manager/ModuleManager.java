@@ -9,5 +9,6 @@ public class ModuleManager {
         new AntiMuteModule("kbpw.module.mute", true);
         new AutoCreativeModule("kbpw.module.creative", true);
         new AutoSkinModule("kbpw.module.autoskin", true);
+        new KeyModule("kbpw.module.keys", false);
     }
 }
